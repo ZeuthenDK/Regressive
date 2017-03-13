@@ -50,8 +50,8 @@
 
                     <Border BorderBrush="Black" BorderThickness="0,1,0,0" DockPanel.Dock="Bottom">
                         <StackPanel DockPanel.Dock="Bottom">
-                            <CheckBox Content="Show coordinates" Margin="10,10,0,0" ToolTip="Show coordinates on the graph"/>
-                            <CheckBox Content="Show grid" Margin="10,10,0,10" ToolTip="Show a grid behind the graph"/>
+                            <CheckBox Content="Show coordinates" Margin="10,10,0,0" ToolTip="Show coordinates on the graph" Name="Show_Coordinates"/>
+                            <CheckBox Content="Show grid" Margin="10,10,0,10" ToolTip="Show a grid behind the graph" Name="Show_Grid" Click="Show_Grid_Click"/>
                         </StackPanel>
                     </Border>
 
@@ -139,10 +139,13 @@
                                         p
                                     </TextBlock>
                                 </Button>
+                                <TextBlock Name="Coordinates_Display" HorizontalAlignment="Right">0,0</TextBlock>
                             </StackPanel>
                         </Border>
 
-                        <WrapPanel Background="Beige"/>
+                        <WrapPanel Background="Beige" Name="Graph_Area" MouseMove="Graph_Area_MouseMove">
+                            
+                        </WrapPanel>
                     </DockPanel>
 
 
