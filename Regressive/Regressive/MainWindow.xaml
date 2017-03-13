@@ -9,40 +9,166 @@
     <DockPanel>
         <Border DockPanel.Dock="Top" BorderBrush="Black" BorderThickness="0,0,0,1">
             <Menu  Background="#D0D0D1">
-            <MenuItem Header="File">
-                <MenuItem Header="New"/>
-                <MenuItem Header="Open"/>
-                <MenuItem Header="Save"/>
-                <MenuItem Header="Save as"/>
-                <Separator/>
-                <MenuItem Header="Exit"/>
-            </MenuItem>
-            <MenuItem Header="Edit">
-                
-            </MenuItem>
-            <MenuItem Header="Zoom">
-                
-            </MenuItem>
-            <MenuItem Header="Help">
-                
-            </MenuItem>
-        </Menu>
+                <MenuItem Header="File">
+                    <MenuItem Header="New"/>
+                    <MenuItem Header="Open"/>
+                    <MenuItem Header="Save"/>
+                    <MenuItem Header="Save as"/>
+                    <Separator/>
+                    <MenuItem Header="Exit"/>
+                </MenuItem>
+                <MenuItem Header="Edit">
+
+                </MenuItem>
+                <MenuItem Header="Zoom">
+
+                </MenuItem>
+                <MenuItem Header="Help">
+
+                </MenuItem>
+            </Menu>
         </Border>
-        
-        <Border BorderBrush="Black" BorderThickness="0,0,1,0">
+
+
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100" MinWidth="25"/>
+                <ColumnDefinition Width="3"/>
+                <ColumnDefinition Width="*" MinWidth="100"/>
+            </Grid.ColumnDefinitions>
+
+
+            <Border BorderBrush="Black" BorderThickness="0,0,0,0">
+                <DockPanel>
+
+
+                    <Border BorderBrush="Black" BorderThickness="0,0,0,1" DockPanel.Dock="Top">
+                        <TextBlock>Name:</TextBlock>
+                    </Border>
+
+
+                    <Border BorderBrush="Black" BorderThickness="0,1,0,0" DockPanel.Dock="Bottom">
+                        <StackPanel DockPanel.Dock="Bottom">
+                            <CheckBox Content="Show coordinates" Margin="10,10,0,0" ToolTip="Show coordinates on the graph"/>
+                            <CheckBox Content="Show grid" Margin="10,10,0,10" ToolTip="Show a grid behind the graph"/>
+                        </StackPanel>
+                    </Border>
+
+
+                    <!--This must be below the other controls that have a specified position-->
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="21"/>
+                            <RowDefinition Height="21"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Grid.Column="0" TextAlignment="Center"><Bold>X</Bold></TextBlock>
+                        <TextBlock Grid.Column="1" TextAlignment="Center"><Bold>Y</Bold></TextBlock>
+                        <TextBox Grid.Column="0" Grid.Row="1">2</TextBox>
+                        <TextBox Grid.Column="1" Grid.Row="1">3</TextBox>
+                        <TextBox Grid.Column="0" Grid.Row="2">4</TextBox>
+                        <TextBox Grid.Column="1" Grid.Row="2">4</TextBox>
+
+
+                    </Grid>
+
+                </DockPanel>
+
+            </Border>
+
+
+            <GridSplitter Grid.Column="1" Width="3" HorizontalAlignment="Stretch"/>
+
+
+            <Border BorderBrush="Black" BorderThickness="0,0,0,0" Grid.Column="2">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="3"/>
+                        <ColumnDefinition Width="*" MinWidth="5"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="3"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <DockPanel HorizontalAlignment="Stretch" Grid.Row="0" Grid.ColumnSpan="3">
+                        <Button>Linear</Button>
+                        <Button>Logarithmic</Button>
+                        <Button>Polynominal</Button>
+                        <Button>Power</Button>
+                        <Button>Expornentiel</Button>
+                        <Button>Moving Average</Button>
+                    </DockPanel>
+
+                    <GridSplitter Grid.Row="1" Height="3" HorizontalAlignment="Stretch"/>
+
+                    <Border BorderBrush="Black" BorderThickness="0,0,0,0" Grid.Row="2" Grid.Column="2">
+                        <StackPanel>
+                            <TextBlock Margin="10,10,0,0">Show Object</TextBlock>
+                            <CheckBox Content="Axies" Margin="10,10,0,0" ToolTip="Show the axies on the graph"/>
+                            <CheckBox Content="Set 1" Margin="10,10,0,10" ToolTip="Show set 1 as a scatterplot"/>
+                        </StackPanel>
+                    </Border>
+
+                    <GridSplitter Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" Width="3"/>
+
+                    <DockPanel Grid.Row="2" Grid.Column="0">
+                        <Border DockPanel.Dock="Top" Background="Gray" Height="20">
+                            <StackPanel Orientation="Horizontal">
+                                <Button Height="20" Width="20">
+                                    <TextBlock Margin="-1,-2,0,0">
+                                        +
+                                    </TextBlock>
+                                </Button>
+                                <Button Height="20" Width="20">
+                                    <TextBlock Margin="-1,-2,0,0">
+                                        -
+                                    </TextBlock>
+                                </Button>
+                                <Button Height="20" Width="20">
+                                    <TextBlock Margin="-1,-2,0,0">
+                                        p
+                                    </TextBlock>
+                                </Button>
+                            </StackPanel>
+                        </Border>
+
+                        <WrapPanel Background="Beige"/>
+                    </DockPanel>
+
+
+                </Grid>
+            </Border>
+
+        </Grid>
+
+
+
+        <!--<Border BorderBrush="Black" BorderThickness="0,0,1,0" >
           <DockPanel Width="100px" >
-            <TextBlock DockPanel.Dock="Top">Name:</TextBlock>
-            <WrapPanel DockPanel.Dock="Bottom" Height="100px">
-                
-            </WrapPanel>
+                <Border DockPanel.Dock="Top" BorderBrush="Black" BorderThickness="0,0,0,1">
+                    <TextBlock Margin="2,2,2,2">Name:</TextBlock>
+                </Border>
+            
+                <StackPanel DockPanel.Dock="Bottom">
+                    <CheckBox Content="Show coordinates" Margin="10,10,0,0"/>
+                    <CheckBox Content="Show grid" Margin="10,10,0,10"/>
+
+
+                </StackPanel>
             <DockPanel>
                 
             </DockPanel>
         </DockPanel>  
-        </Border>
-        
-        <DockPanel DockPanel.Dock="Right">
-            
-        </DockPanel>
+        </Border>-->
     </DockPanel>
 </Window>
