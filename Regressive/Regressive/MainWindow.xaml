@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <DockPanel>
+        <!--Top menu bar-->
         <Border DockPanel.Dock="Top" BorderBrush="Black" BorderThickness="0,0,0,1">
             <Menu  Background="#D0D0D1">
                 <MenuItem Header="File">
@@ -30,7 +31,7 @@
         </Border>
 
 
-
+        <!--The content-->
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="100" MinWidth="25"/>
@@ -154,24 +155,7 @@
 
         </Grid>
 
-
-
-        <!--<Border BorderBrush="Black" BorderThickness="0,0,1,0" >
-          <DockPanel Width="100px" >
-                <Border DockPanel.Dock="Top" BorderBrush="Black" BorderThickness="0,0,0,1">
-                    <TextBlock Margin="2,2,2,2">Name:</TextBlock>
-                </Border>
-            
-                <StackPanel DockPanel.Dock="Bottom">
-                    <CheckBox Content="Show coordinates" Margin="10,10,0,0"/>
-                    <CheckBox Content="Show grid" Margin="10,10,0,10"/>
-
-
-                </StackPanel>
-            <DockPanel>
-                
-            </DockPanel>
-        </DockPanel>  
-        </Border>-->
+        
+        
     </DockPanel>
 </Window>
