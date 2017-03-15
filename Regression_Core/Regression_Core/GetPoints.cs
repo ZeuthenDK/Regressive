@@ -57,6 +57,49 @@ namespace Regression_Core
 		}
 
 
+		public static bool machParenthesies(string input)
+		{
+			if (input.Length < 2)
+			{
+				return false;
+			}
+			bool opened = false;
+			int i = 0;
+			for (; i < input.Length; i++)
+			{
+				if (input[i].Equals('('))
+				{
+					if (opened)
+					{
+						input = input.Insert(i, "»").Insert(i+2, "«");
+						Console.WriteLine("Unmached paranthesis at char " + (i + 1) + "\n" + input);
+						return false;
+					}
+					opened = true;
+				}
+				if (input[i].Equals(')'))
+				{
+					if (opened)
+					{
+						opened = false;
+					}
+					else
+					{
+						input = input.Insert(i, "»").Insert(i + 2, "«");
+						Console.WriteLine("Unmached paranthesis at char " + (i + 1) + "\n" + input);
+						return false;
+					}
+				}
+			}
+			if (opened)
+			{
+				input = input.Insert(i, "»").Insert(i + 2, "«");
+			}
+
+			return true;
+		}
+
+
 		static bool isNumber(char toTest)
 		{
 			if (toTest == '0' ||

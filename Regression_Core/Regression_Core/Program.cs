@@ -14,13 +14,31 @@ namespace Regression_Core
 			Console.WriteLine("Enter L or P and points as ex (2;3,4)(3,56;0)");
 			while (true)
 			{
-				//input = Console.ReadLine();
+				input = Console.ReadLine();
 				if (input.ToUpper() == "EXIT" || input.ToUpper() == "EX")
 				{
 					break;
 				}
-				Console.WriteLine(LinearRegression.PerformRegression("(200;0)(3;4)(2,34;3)"));
-				Console.ReadLine();
+				if (input.Length < 1)
+				{
+					input = "_";
+				}
+				input = input.Replace(" ", "");
+
+				switch (input[0])
+				{
+					case 'L':
+						Console.WriteLine(LinearRegression.PerformRegression(input.Substring(1)));
+						break;
+					case 'P':
+						Console.WriteLine(PolyRegression.PerformRegression(input.Substring(1)));
+						break;
+					default:
+						Console.WriteLine("Err: Illigal function type " + input[0] + " not reconized");
+						break;
+
+				}
+				
 
 			}
 		}
