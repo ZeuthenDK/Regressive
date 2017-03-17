@@ -30,8 +30,11 @@ namespace Regression_Core
 					case 'L':
 						Console.WriteLine(LinearRegression.PerformRegression(input.Substring(1)));
 						break;
-					case 'P':
+					case '2':
 						Console.WriteLine(PolyRegression.PerformRegression(input.Substring(1)));
+						break;
+					case 'P':
+						Console.WriteLine(PolynominalRegression.PerformRegression(input.Substring(1)));
 						break;
 					default:
 						Console.WriteLine("Err: Illigal function type " + input[0] + " not reconized");
