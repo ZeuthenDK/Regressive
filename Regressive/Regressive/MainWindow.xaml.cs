@@ -104,7 +104,7 @@ namespace Regressive
 		}
 		
 		//Returns (not yet returning, just shows the values of) a two dimensional array containing the coordinates for all points
-		public void /*double[,]*/ getPointSeries()
+		public double[,] getPointSeries()
 		{
 			double[,] points = new double[rows - 1, 2];
 			int toTrim = 0;
@@ -126,7 +126,7 @@ namespace Regressive
 					if (!sucess)
 					{
 						MessageBox.Show("The value of box X" + (s + 1) + ": " + ((TextBox)CoordinateGrid.Children[i]).Text + " is not a valid number");
-						return;
+						return null;
 					}
 
 					i++;
@@ -135,7 +135,7 @@ namespace Regressive
 					if (!sucess)
 					{
 						MessageBox.Show("The value of box Y" + (s + 1) + ": " + ((TextBox)CoordinateGrid.Children[i]).Text + " is not a valid number");
-						return;
+						return null;
 					}
 				}
 
@@ -157,12 +157,12 @@ namespace Regressive
 			if (newPoints.GetLength(0) < 1)
 			{
 				MessageBox.Show("No points :(");
-				return;
+				return null;
 			}
 			//For debugging:
 			MessageBox.Show(coordinates);
 			
-			/*return newPoints;*/
+			return newPoints;
 		}
 	}
 }
