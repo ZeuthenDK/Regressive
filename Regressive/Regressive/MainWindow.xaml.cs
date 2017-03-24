@@ -54,9 +54,9 @@ namespace Regressive
 
 		private void Graph_Area_MouseMove(object sender, MouseEventArgs e)
 		{
-			string x = Math.Round((e.GetPosition(Graph_Area).X - 0.2), 1).ToString();
+			/*string x = Math.Round((e.GetPosition(Graph_Area).X - 0.2), 1).ToString();
 			string y = Math.Round((e.GetPosition(Graph_Area).Y - 0.2), 1).ToString();
-			Coordinates_Display.Text = x + ";" + y;
+			Coordinates_Display.Text = x + ";" + y;*/
 		}
 
 		//When the TextBox in the Y column gets focus, it checks if it is the last one. If it is, it adds a new row
