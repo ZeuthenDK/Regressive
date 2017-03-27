@@ -15,24 +15,24 @@ namespace Regressive
 
 	public class DrawPlot
 	{
-		public DrawPlot()
+		/*public DrawPlot()
 		{
-			this.Model = new PlotModel { Title = "Example 1" };
-			this.Model.Series.Add(new FunctionSeries(Math.Cos, 0, 10, 0.1, "cos(x)"));
+			this.Model = new PlotModel {  };
+			//this.Model.Series.Add(new FunctionSeries(Math.Cos, 0, 10, 0.1, "cos(x)"));
 		}
 
-		public PlotModel Model { get; private set; }
+		public PlotModel Model { get; private set; }*/
 
 
-		/*public MainViewModel()
+		public DrawPlot()
 		{
-			MyModel = CreatePlotModel();
+			Model = CreatePlotModel();
 		}
 
 		public PlotModel CreatePlotModel()
 		{
 
-			var plotModel = new PlotModel { Title = "OxyPlot Demo" };
+			var plotModel = new PlotModel { Title = "" };
 
 			plotModel.Axes.Add(new LinearAxis { Position = AxisPosition.Bottom });
 			plotModel.Axes.Add(new LinearAxis { Position = AxisPosition.Left, Maximum = 10, Minimum = -10 });
@@ -71,6 +71,6 @@ namespace Regressive
 
 			return plotModel;
 		}
-		public PlotModel MyModel { get; private set; }*/
+		public PlotModel Model { get; private set; }
 	}
 }

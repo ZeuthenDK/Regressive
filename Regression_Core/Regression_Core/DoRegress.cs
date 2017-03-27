@@ -52,13 +52,9 @@ namespace Regression_Core
 		}
 
 
-		public static string PolynominalRegression(string points)
+		public static Coefficients PolynominalRegression(double[,] series)
 		{
-			if (!GetPoints.machParenthesies(points))
-			{
-				return "Err: Unmatched parenthesies";
-			}
-			double[,] series = GetPoints.StringToArray(points);
+			
 			double a = 0, b = 0, c = 0, d = 0, e = 0;
 			for (int i = series.GetLength(0) - 1; i >= 0; i--)
 			{
@@ -76,17 +72,12 @@ namespace Regression_Core
 			double coeff1 = ((-b) * e + c * d) / (a * c - Math.Pow(b, 2));
 			double coeff2 = (a * e - b * d) / (a * c - Math.Pow(b, 2));
 
-			return coeff1 + "x² + " + coeff2 + "x";
+			return new Coefficients(coeff1, coeff2);
 		}
 
 
-		public static string LinearRegression(string points)
+		public static Coefficients LinearRegression(double[,] series)
 		{
-			if (!GetPoints.machParenthesies(points))
-			{
-				return "Err: Unmatched parenthesies";
-			}
-			double[,] series = GetPoints.StringToArray(points);
 			double a = 0, b = 0, c = 0, d = 0, e = 0;
 			for (int i = series.GetLength(0) - 1; i >= 0; i--)
 			{
@@ -103,24 +94,12 @@ namespace Regression_Core
 			Console.WriteLine(e);
 			double coeff1 = (-b * e + c * d) / (a * c - Math.Pow(b, 2));
 			double coeff2 = (a * e - b * d) / (a * c - Math.Pow(b, 2));
-			if (coeff2 < 0)
-			{
-				return coeff1 + "x" + coeff2;
-			}
-			else
-			{
-				return coeff1 + "x+" + coeff2;
-			}
+			return new Coefficients(coeff1, coeff2);
 		}
 
 
-		public static string ExponentialRegression(string points)
-		{
-			if (!GetPoints.machParenthesies(points))
-			{
-				return "Err: Unmatched parenthesies";
-			}
-			double[,] series = GetPoints.StringToArray(points);
+		public static Coefficients ExponentialRegression(double[,] series)
+		{ 
 			double a = 0, b = 0, c = 0, d = 0, e = 0;
 			for (int i = series.GetLength(0) - 1; i >= 0; i--)
 			{
@@ -137,14 +116,19 @@ namespace Regression_Core
 			Console.WriteLine(e);*/
 			double coeff1 = Math.Pow(Math.E, (-b * e + c * d) / (a * c - Math.Pow(b, 2)));
 			double coeff2 = Math.Pow(Math.E, (a * e - b * d) / (a * c - Math.Pow(b, 2)));
-			if (coeff2 < 0)
-			{
-				return coeff1 + "^x * (" + coeff2 + ")";
-			}
-			else
-			{
-				return coeff1 + "^x * " + coeff2;
-			}
+			return new Coefficients(coeff1, coeff2);
 		}
+	}
+
+	public class Coefficients
+	{
+		double a, b;
+
+		public Coefficients(double a, double b)
+		{
+			this.a = a;
+			this.b = b;
+		}
+		
 	}
 }
