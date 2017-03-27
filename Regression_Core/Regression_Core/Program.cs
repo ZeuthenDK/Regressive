@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Regression_Core
 {
-	class Program
+	/*class Program
 	{
 		static string input = "";
 		static void Main(string[] args)
@@ -51,5 +51,5 @@ namespace Regression_Core
 
 			}
 		}
-	}
+	}*/
 }
