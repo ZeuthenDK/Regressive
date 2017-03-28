@@ -15,20 +15,35 @@ namespace Regressive
 
 	public class DrawPlot
 	{
-		/*public DrawPlot()
+
+		//private static DrawPlot singleton;
+		public DrawPlot()
 		{
 			this.Model = new PlotModel {  };
 			//this.Model.Series.Add(new FunctionSeries(Math.Cos, 0, 10, 0.1, "cos(x)"));
 		}
 
-		public PlotModel Model { get; private set; }*/
+		public PlotModel Model { get; private set; }
 
 
-		public DrawPlot()
+
+		/*public DrawPlot()
 		{
+			if(singleton != null)
+			{
+				singleton = this;
+			}
 			Model = CreatePlotModel();
 		}
-
+		
+		public static DrawPlot GetSingleton()
+		{
+			if(singleton == null)
+			{
+				singleton = new DrawPlot();
+			}
+			return singleton;
+		}*/
 		public PlotModel CreatePlotModel()
 		{
 
@@ -46,7 +61,7 @@ namespace Regressive
 				MarkerStroke = OxyColors.White
 			};
 
-			series1.Points.Add(new DataPoint(0.0, 6.0));
+			/*series1.Points.Add(new DataPoint(0.0, 6.0));
 			series1.Points.Add(new DataPoint(1.4, 2.1));
 			series1.Points.Add(new DataPoint(2.0, 4.2));
 			series1.Points.Add(new DataPoint(3.3, 2.3));
@@ -65,12 +80,10 @@ namespace Regressive
 			float c = 0.1f;
 
 			plotModel.Series.Add(new FunctionSeries(x => a * x * x + b * x + c, -10f, 10f, 0.1f, "anden græds funktion"));
-			plotModel.Series.Add(new FunctionSeries(x => a * x + b, -10f, 10f, 0.1f, "lignær funktion"));
-
-
+			plotModel.Series.Add(new FunctionSeries(x => a * x + b, -10f, 10f, 0.1f, "lignær funktion"));^*/
 
 			return plotModel;
 		}
-		public PlotModel Model { get; private set; }
+		//public PlotModel Model { get;  set; }
 	}
 }

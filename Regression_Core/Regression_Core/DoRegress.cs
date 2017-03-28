@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Regression_Core
 {
-	static class Regression
+	public static class Regression
 	{
 		public static string SlopeRegression(string points)
 		{
@@ -122,7 +122,7 @@ namespace Regression_Core
 
 	public class Coefficients
 	{
-		double a, b;
+		public double a, b;
 
 		public Coefficients(double a, double b)
 		{

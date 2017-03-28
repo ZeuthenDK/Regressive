@@ -12,9 +12,13 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Regression_Core;
 
 namespace Regressive
 {
+	using OxyPlot;
+	using OxyPlot.Axes;
+	using OxyPlot.Series;
 	/// <summary>
 	/// Interaction logic for MainWindow.xaml
 	/// </summary>
@@ -100,7 +104,35 @@ namespace Regressive
 
 		private void PerformLinear_Click(object sender, RoutedEventArgs e)
 		{
-			getPointSeries();
+			double[,] points = getPointSeries();
+			if (points == null)
+			{
+				MessageBox.Show("No points :(");
+				return;
+			}
+
+			Coefficients aAndb = Regression.LinearRegression(points);
+			
+			PlotModel m = new PlotModel { };
+			m.Axes.Add(new LinearAxis { Position = AxisPosition.Bottom });
+			m.Axes.Add(new LinearAxis { Position = AxisPosition.Left, Maximum = 10, Minimum = -10 });
+			m.Series.Add(new FunctionSeries(x => aAndb.a * x + aAndb.b, -10f, 10f, 0.1f, null));
+
+			LineSeries series1 = new LineSeries
+			{
+
+				LineStyle = LineStyle.None,
+				MarkerType = MarkerType.Circle,
+				MarkerSize = 4,
+				MarkerStroke = OxyColors.White
+			};
+			for (int i = points.GetLength(0) - 1; i >= 0; i--)
+			{
+				series1.Points.Add(new DataPoint(points[i, 0], points[i, 1]));
+			}
+			m.Series.Add(series1);
+			Graph.Model = m;
+			
 		}
 		
 		//Returns (not yet returning, just shows the values of) a two dimensional array containing the coordinates for all points
@@ -156,11 +188,10 @@ namespace Regressive
 			//If there are not coordinates to any points
 			if (newPoints.GetLength(0) < 1)
 			{
-				MessageBox.Show("No points :(");
 				return null;
 			}
 			//For debugging:
-			MessageBox.Show(coordinates);
+			//MessageBox.Show(coordinates);
 			
 			return newPoints;
 		}
